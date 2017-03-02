@@ -6,7 +6,6 @@
 	        <h4 class="modal-title" id="myModalLabel">Formulario De Producto</h4>
 		</div>
   		<div class="modal-body">
-          <form id="formulario" method="post" action="<?php echo site_url();?>/Producto_controller/guardar">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
@@ -15,7 +14,7 @@
               </div>
               <div class="form-group">
                   <label>Cantidad</label>
-                  <input class="form-control" placeholder="Cantidad del producto" name="cantidad">
+                  <input class="form-control" placeholder="Cantidad del producto" name="cantidad" id="cantidad">
               </div>
             </div>
             <div class="col-md-6 ">
@@ -23,13 +22,13 @@
                   <label>Precio</label>
                   <div class="input-group">
                   <div class="input-group-addon">$</div>
-                  <input type="number" class="form-control" name="precio" placeholder="Precio del producto">
+                  <input type="number" class="form-control" name="precio" placeholder="Precio del producto" id="precio">
                   <div class="input-group-addon">.00</div>
                   </div>
               </div>
               <div class="form-group">
                   <label>Categoria</label>
-                  <select class="form-control" name="categoria">
+                  <select class="form-control" name="categoria" id="categoria">
                   <option value="0">Seleccione...</option>
                   <?php foreach($categoria as $row):  ?>  
                       <option value="<?php echo $row->id_categoria; ?>">
@@ -39,18 +38,16 @@
                   </select>
               </div>
             </div>
+            <div class="form-group"  id="respuesta" role="alert">
+            </div>
           </div>
-       
+          
   		</div>
-      <div class="col-md-12" id="mensaje">
-        <iframe src="<?php echo site_url();?>/Producto_controller/guardar"></iframe>
-
-      </div>
+      
 		  <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <input type="submit" class="btn btn-primary" id="btn_regis" value="guardar">
+	        <button class="btn btn-primary" id="btn_regis" >Guardar</button>
 	  	</div>
-      </form>  
     </div>
   </div>
 </div>

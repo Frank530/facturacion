@@ -23,6 +23,24 @@ class Producto_model extends CI_Model {
         }
 	}
 
+	public function getProductos($numberProd){
+		$query=$this->db->get('producto', $numberProd,0);
+		return $query->result();
+	}
+
+	public function numPost(){
+
+		$number = $this->db->query('select count(*) as number from producto')->row()->number;
+		return intval($number);
+	}
+
+	public function getPagination($numberProd,$lote){
+		
+		$query = $this->db->get('producto', $lote,$numberProd);
+		return $query->result();
+
+	}
+
 }
 
 /* End of file Producto_model.php */

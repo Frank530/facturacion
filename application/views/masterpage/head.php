@@ -27,4 +27,4 @@
     <link href="<?php echo base_url();?>plantilla/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body >

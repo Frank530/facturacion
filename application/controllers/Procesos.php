@@ -6,11 +6,12 @@ class Procesos extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('Usuario_model');
+		$this->load->model('Producto_model');
 		
 	}
 	public function inicio(){
 		$id = $this->session->userdata('id');
-		$model = $this->load->model('Usuario_model');
 		$fila = $this->Usuario_model->getUsuarioById($id);
 		if ($this->session->userdata('login')) {
 			$data['nombre'] = $fila->nombre_cliente;
@@ -26,10 +27,10 @@ class Procesos extends CI_Controller {
 
 	public function producto(){
 		$id = $this->session->userdata('id');
-		$model = $this->load->model('Usuario_model');
-		$model = $this->load->model('Producto_model');
 		$fila = $this->Usuario_model->getUsuarioById($id);
 		$data['categoria'] = $this->Producto_model->getNombre();
+		$data['productos']=$this->Producto_model->getProductos(10);
+		$data['numPaginas']=ceil($this->Producto_model->numPost()/10);
 		if (isset($mensaje)) {
 			$data['mensaje']=$mensaje;
 		}
